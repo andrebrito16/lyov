@@ -1,10 +1,12 @@
 defmodule CgnaflightsapiWeb.GetFlightsController do
   use CgnaflightsapiWeb, :controller
-  alias Cgnaflightsapi.GetFile
+  alias Cgnaflightsapi.Parser
 
-  def call(conn, _error) do
+  def index(conn, %{"company" => _company, "date" => _date} = params) do
     ## Returns hello world response
-    payload = GetFile.call("2021-12-30", "AZU")
+    company = params["company"]
+    date = params["date"]
+    payload = Parser.call(date, company)
 
     conn
     |> json(payload)
