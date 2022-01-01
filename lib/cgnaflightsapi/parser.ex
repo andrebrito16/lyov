@@ -29,7 +29,8 @@ defmodule Cgnaflightsapi.Parser do
 
     callsign = String.slice(first_line, 25..31)
     aicraft_type = String.slice(first_line, 33..36)
-    wake_turbulence = String.slice(first_line, 38..38)
+    code = String.slice(first_line, 25..27)
+    flight_number = wake_turbulence = String.slice(first_line, 28..31)
     departure_icao = String.slice(first_line, 40..43)
     arrival_icao = String.slice(first_line, 95..98)
     eobt = String.slice(first_line, 44..47)
@@ -59,6 +60,8 @@ defmodule Cgnaflightsapi.Parser do
       route: route,
       remarks: remarks,
       callsign: callsign,
+      code: code,
+      flight_number: flight_number,
       aicraft_type: aicraft_type,
       wake_turbulence: wake_turbulence,
       arrival_icao: arrival_icao,
