@@ -8,7 +8,7 @@ defmodule CgnaflightsapiWeb.Router do
   scope "/api", CgnaflightsapiWeb do
     pipe_through :api
 
-    get "/", GetFlightsController, :index
+    get "/flights", GetFlightsController, :index
   end
 
   # Enables LiveDashboard only for development
