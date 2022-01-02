@@ -39,13 +39,13 @@ defmodule Cgnaflightsapi.Parser do
     cruise_speed = String.slice(first_line, 49..53)
     enroute_time = String.slice(first_line, 99..102)
 
-    flight_on_sunday = String.at(first_line, 17) == "1"
-    flight_on_monday = String.at(first_line, 18) == "2"
-    flight_on_tuesday = String.at(first_line, 19) == "3"
-    flight_on_wednesday = String.at(first_line, 20) == "4"
-    flight_on_thursday = String.at(first_line, 21) == "5"
-    flight_on_friday = String.at(first_line, 22) == "6"
-    flight_on_saturday = String.at(first_line, 23) == "7"
+    flight_on_monday = String.at(first_line, 17) == "1"
+    flight_on_tuesday = String.at(first_line, 18) == "2"
+    flight_on_wednesday = String.at(first_line, 19) == "3"
+    flight_on_thursday = String.at(first_line, 20) == "4"
+    flight_on_friday = String.at(first_line, 21) == "5"
+    flight_on_saturday = String.at(first_line, 22) == "6"
+    flight_on_sunday = String.at(first_line, 23) == "7"
 
     flight_days = %{
       sunday: flight_on_sunday,
