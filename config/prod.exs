@@ -10,7 +10,7 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :cgnaflightsapi, CgnaflightsapiWeb.Endpoint,
-  url: [host: "lyov.radarbot.xyz", port: 443],
+  url: [host: "lyov.radarbot.xyz", port: 80],
   http: [port: 4000]
 
 # Do not print debug messages in production
