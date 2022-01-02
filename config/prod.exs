@@ -11,7 +11,7 @@ use Mix.Config
 # before starting your production server.
 config :cgnaflightsapi, CgnaflightsapiWeb.Endpoint,
   url: [host: "lyov.radarbot.xyz", port: 443],
-  http: [port: 4000],
+  http: [port: 4000]
 
 # Do not print debug messages in production
 config :logger, level: :info
