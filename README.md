@@ -76,7 +76,7 @@ About params:
 |        TTL        | Total Cargo |
 |        SID        |   Sideral   |
 
-- Date is current cycle of RPL. This is be fetched automatically soon. But for now **you have to** use `&date=2022-01-03` (**This param will always be updated on this readme while not implemented automatically way**).
+- Date is current cycle of RPL. This is be fetched automatically soon. But for now **you have to** use `&date=2022-01-20` (**This param will always be updated on this readme while not implemented automatically way**).
 - You can also access [this link](http://portal.cgna.decea.mil.br/) and scroll to "Plano de Voo Repetitivo - RPL" and click on date. (Image bellow)
   <img src="public/cgna_page_1.png" alt="CGNA main page">
 Then a popup will open and you'll see the date on format `MM/MM/AAAA`. To use on API you have to convert to `AAAA-MM-MM`.
