@@ -3,8 +3,7 @@
   Lyov API
 </h1>
 
-<p align="center">Lyov is a simple API to fetch and parse repetitive flight plans (RPL) from DECEA (Brazilian Air Traffic Control authority), returning a JSON string in the process 😊.<br/><br/>Focus on <b>create</b> you application. The Lyov will take care of
-<b>provides</b> to you flight plans of brazilian airlines.
+<p align="center">Lyov is a simple API to fetch and parse repetitive flight plans (RPL) from DECEA (Brazilian Air Traffic Control authority), returning a JSON string in the process 😊.<br/><br/>Focus on <b>you application</b>. Lyov will take care of the complicated part. 
 </p>
 
 <p align="center"><img src="https://img.shields.io/badge/Elixir-674D74?style=for-the-badge&logo=elixir" alt="go version" />&nbsp;<img src="https://img.shields.io/badge/license-mit-red?style=for-the-badge&logo=none" alt="license" /></p>
@@ -19,11 +18,11 @@
 
 ## 🌻 Motivation
 
-DECEA (Brazilian Air Traffic Control authority) provides flight plans on **TXT file**, is not very easy to use this information on applications to get real routes of specific company, or fetch specific flight plan.
+DECEA (Brazilian Air Traffic Control authority) provides Repetitive Flight Plans (flight plans for flights that happen every week or so) on a **TXT File**, and although it's nice for humans to read, the format is terrible for machines to parse!
 
-To see a example of default TXT response you can <a target=__BLANK href="http://portal.cgna.decea.mil.br/files/abas/2021-12-30/painel_rpl/companhias/Cia_AZU_CS.txt">click here</a>
+To see a example of the default TXT response, you can <a target=__BLANK href="http://portal.cgna.decea.mil.br/files/abas/2021-12-30/painel_rpl/companhias/Cia_AZU_CS.txt">click here</a>
 
-Lyov was created just to **convert** flight plans data to **JSON**. 
+Lyov was created just to **parse** these flight plans into **JSON**. 
 
 Here is an example of JSON response.
 
@@ -55,6 +54,7 @@ Here is an example of JSON response.
   }
 ]
 ```
+
 ## ⚡️ Quick start
 Lyov is **already hosted** and is available as **public API** 24/7/365. 
 
@@ -76,10 +76,10 @@ About params:
 |        TTL        | Total Cargo |
 |        SID        |   Sideral   |
 
-- Date is current cycle of RPL. This is be fetched automatically soon. But for now **you have to** use `&date=2022-01-03` (**This param will always be updated on this readme while not implemented automatically way**).
+- Date is current cycle of RPL. This will be calculated automatically soon. But for now **you have to** use `&date=2022-01-03` (**This param will always be updated on this readme while not implemented automatically way**).
 - You can also access [this link](http://portal.cgna.decea.mil.br/) and scroll to "Plano de Voo Repetitivo - RPL" and click on date. (Image bellow)
   <img src="public/cgna_page_1.png" alt="CGNA main page">
-Then a popup will open and you'll see the date on format `MM/MM/AAAA`. To use on API you have to convert to `AAAA-MM-MM`.
+Then a popup will open and you'll see the date on format `DD/MM/AAAA`. To use on API you have to convert to `AAAA-MM-MM`.
 
 <img src="public/cgna_page_2.png" alt="CGNA popup">
 
