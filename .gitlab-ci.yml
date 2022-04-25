@@ -41,4 +41,4 @@ deploy:
   script:
     - kubectl apply -f kubernetes
   only:
-    - develop
+    - master
