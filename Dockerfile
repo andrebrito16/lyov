@@ -15,6 +15,3 @@ COPY . ./
 
 # App Port
 EXPOSE 4000
-
-# Default Command
-CMD ["mix", "phx.server"]

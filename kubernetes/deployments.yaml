@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lyov
+  namespace: radarbot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lyov
+  template:
+    metadata:
+      labels:
+        app: lyov
+    spec:
+      containers:
+        - name: lyov
+          imagePullPolicy: Always
+          image: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHA}
+          ports:
+            - containerPort: 4000
+          command: ["mix"]
+          args: ["phx.server"]
+      imagePullSecrets:
+      - name: regcred
+

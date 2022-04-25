@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lyov-ingress
+  namespace: radarbot
+
+spec:
+  rules:
+    - host: lyov.radarbot.xyz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: lyov-service
+                port:
+                  number: 80
