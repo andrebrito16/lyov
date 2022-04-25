@@ -37,7 +37,7 @@ deploy:
           envsubst < "$filename" | sponge "$filename"
       done
 
-    - kubectl config use-context radarbot-team/kubernetes-agent:contabo
+    - kubectl config use-context andrebrito16/lyov:contabo-andre
   script:
     - kubectl apply -f kubernetes
   only:
