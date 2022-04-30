@@ -12,18 +12,18 @@ defmodule Cgnaflightsapi.Parser do
     route =
       flight
       |> Enum.reduce("", fn item, acc ->
-        "#{acc} #{String.slice(item, 59..92)}"
+        "#{acc} #{String.trim(String.slice(item, 59..90))}"
       end)
       |> String.trim()
-      |> String.replace("  ", "")
+      |> String.replace("  ", " ")
 
     remarks =
       flight
       |> Enum.reduce("", fn item, acc ->
-        "#{acc} #{String.slice(item, 104..125)}"
+        "#{acc} #{String.trim(String.slice(item, 104..133))}"
       end)
       |> String.trim()
-      |> String.replace("  ", "")
+      |> String.replace("  ", " ")
 
     first_line = Enum.at(flight, 0)
 
