@@ -1,15 +1,21 @@
 stages:
   - publish-to-registry
-  - deploy
+  - deploy-production
+  - deploy-staging
 
 variables:
   VARIABLE_DATA: Gitlab-CI-YAML
-
+  # To work with self-hosted runner
+  DOCKER_HOST: tcp://docker:2375
+  
 publish-to-registry:
   stage: publish-to-registry
-  image: docker:latest
+  image: docker:stable-git
   services:
-    - docker:dind
+    - name: docker:stable-dind
+      command: [ "dockerd", "--host=unix:///var/run/docker.sock", "--host=tcp://0.0.0.0:2375", "--mtu=1450" ]
+  variables:
+    DOCKER_DRIVER: overlay2
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
@@ -20,24 +26,42 @@ publish-to-registry:
       exists:
         - Dockerfile
 
-deploy:
+deploy-staging:
   image: 
     name: dtzar/helm-kubectl
     entrypoint: [""]
-  stage: deploy
+  stage: deploy-staging
   services:
-    - docker:dind
+    - docker:19.03-dind
   environment:
-    name: production
+    name: stg
   before_script:
     - apk add moreutils
 
-    - |
-      for filename in kubernetes/*.yaml; do
-          envsubst < "$filename" | sponge "$filename"
-      done
+    - envsubst < "kubernetes/deployments.yaml" | sponge "kubernetes/deployments.yaml"
+      
+    - kubectl config use-context radarbot-team/kubernetes-agent:contabo
+  script:
+    - kubectl apply -f kubernetes
+  only:
+    - develop
 
-    - kubectl config use-context radarbot-team/kubernetes-agent:scaleways
+
+deploy-production:
+  image: 
+    name: dtzar/helm-kubectl
+    entrypoint: [""]
+  stage: deploy-production
+  services:
+    - docker:dind
+  environment:
+    name: prod
+  before_script:
+    - apk add moreutils
+
+    - envsubst < "kubernetes/deployments.yaml" | sponge "kubernetes/deployments.yaml"
+      
+    - kubectl config use-context radarbot-team/kubernetes-agent:contabo
   script:
     - kubectl apply -f kubernetes
   only:
