@@ -12,7 +12,7 @@ defmodule Cgnaflightsapi.Parser do
     route =
       flight
       |> Enum.reduce("", fn item, acc ->
-        "#{acc} #{String.slice(item, 59..91)}"
+        "#{acc} #{String.slice(item, 59..92)}"
       end)
       |> String.trim()
       |> String.replace("  ", "")
