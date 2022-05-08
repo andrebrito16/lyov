@@ -56,9 +56,9 @@ Here is an example of JSON response.
 ]
 ```
 ## ⚡️ Quick start
-Lyov is **already hosted** and is available as **public API** 24/7/365. 
+Lyov is **already hosted** and is available at **RapidAPI** 24/7/365. 
 
-**The base URL** is: <https://lyov.radarbot.xyz/api/flights?company=[company]&date=[date]>
+**Access RapidAPI in this [link](https://rapidapi.com/andrebrito16/api/lyov1/)** 
 
 You can send a `GET` request to this route replacing `company` and `date` params.
 
@@ -83,7 +83,7 @@ Then a popup will open and you'll see the date on format `MM/MM/AAAA`. To use on
 
 <img src="public/cgna_page_2.png" alt="CGNA popup">
 
-On image above the date is `03/01/2022`, so on API use you will pass `&date=2022-01-03`
+On image above the date is `03/01/2022`, so on API use you will pass `&date=2022-04-30`
 
 
 ## 💙 Contributing
