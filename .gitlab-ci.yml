@@ -15,11 +15,11 @@ publish-to-registry:
     - name: docker:stable-dind
       command: [ "dockerd", "--host=unix:///var/run/docker.sock", "--host=tcp://0.0.0.0:2375", "--mtu=1450" ]
   variables:
+    DOCKER_DRIVER: overlay2
   context: .
   dockerfile: Dockerfile
   args:
     - API_TOKEN=${API_TOKEN}
-  DOCKER_DRIVER: overlay2
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
