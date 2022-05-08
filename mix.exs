@@ -46,7 +46,10 @@ defmodule Cgnaflightsapi.MixProject do
       {:httpoison, "~> 1.7"},
       {:floki, "~> 0.32.0"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
-      {:machinist, "~> 0.4.0"}
+      {:machinist, "~> 0.4.0"},
+      {:dotenv, "~> 3.0.0"},
+      {:confex, "~> 3.5.0"},
+      {:guardian, "~> 2.0"}
     ]
   end
 
