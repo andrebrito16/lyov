@@ -14,10 +14,6 @@ publish-to-registry:
   services:
     - name: docker:stable-dind
       command: [ "dockerd", "--host=unix:///var/run/docker.sock", "--host=tcp://0.0.0.0:2375", "--mtu=1450" ]
-  variables:
-    DOCKER_DRIVER: overlay2
-  context: .
-  dockerfile: Dockerfile
   args:
     - API_TOKEN=${API_TOKEN}
   before_script:
