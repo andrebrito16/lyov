@@ -14,12 +14,10 @@ publish-to-registry:
   services:
     - name: docker:stable-dind
       command: [ "dockerd", "--host=unix:///var/run/docker.sock", "--host=tcp://0.0.0.0:2375", "--mtu=1450" ]
-  args:
-    - API_TOKEN=${API_TOKEN}
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA" .
+    - docker --build-arg API_TOKEN=$API_TOKEN build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA" .
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA"
   rules:
     - if: $CI_COMMIT_BRANCH
