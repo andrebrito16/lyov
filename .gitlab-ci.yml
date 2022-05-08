@@ -17,7 +17,7 @@ publish-to-registry:
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
-    - docker --build-arg API_TOKEN=$API_TOKEN build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA" .
+    - docker build --build-arg --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA" .
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA"
   rules:
     - if: $CI_COMMIT_BRANCH
