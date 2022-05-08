@@ -3,12 +3,12 @@ defmodule CgnaflightsapiWeb.GetFlightsController do
   alias Cgnaflightsapi.Parser
 
   def index(conn, %{"company" => _company, "date" => _date} = params) do
-    header_test =
+    authorization_header =
       conn
       |> get_req_header("api-token")
       |> to_string()
 
-    if (header_test !== System.get_env("API_TOKEN")) do
+    if (authorization_header !== System.get_env("API_TOKEN") || System.get_env("API_TOKEN") == "") do
       conn
       |> put_status(401)
       |> json(%{error: "api-token invalid"})
