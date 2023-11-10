@@ -1,0 +1,31 @@
+name: Lyov Pipeline
+
+on:
+  push:
+  deployment:
+  release:
+    types: [created]
+  pull_request:
+    types: [opened, reopened]
+
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment"
+        required: true
+        type: choice
+        default: "dev"
+        options:
+          - dev
+          - stg
+          - prd
+
+jobs:
+  SVC:
+    uses: andrebrito16/iac-github-actions/.github/workflows/svc.yml@main
+    secrets: inherit
+    with:
+      mainBranch: master
+      platforms: linux/amd64
+      environmentsAsNamespaces: true
+      nodeMatrix: "[18]"

@@ -1,0 +1,21 @@
+#@data/values
+---
+port: 4000
+
+env:
+  - name: PORT
+    value: "4000"
+  - name: TZ
+    value: America/Sao_Paulo
+
+ingress:
+  enable: true
+  className: nginx
+  domain: radarbot.xyz
+
+  letsencrypt:
+    enable: true
+    email: felipe.brito016@gmail.com
+
+deployment:
+  replicas: 1

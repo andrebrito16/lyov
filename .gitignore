@@ -28,3 +28,5 @@ cgnaflightsapi-*.tar
 /priv/static/
 
 .env
+
+/manifests/secrets/*.env
