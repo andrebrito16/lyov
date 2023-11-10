@@ -28,4 +28,3 @@ jobs:
       mainBranch: master
       platforms: linux/amd64
       environmentsAsNamespaces: true
-      nodeMatrix: "[18]"
