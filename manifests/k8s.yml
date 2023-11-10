@@ -14,7 +14,7 @@ ingress:
   domain: radarbot.xyz
 
   letsencrypt:
-    enable: true
+    enable: false
     email: felipe.brito016@gmail.com
 
 deployment:
