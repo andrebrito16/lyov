@@ -22,7 +22,7 @@ on:
 
 jobs:
   SVC:
-    uses: andrebrito16/iac-github-actions/.github/workflows/svc.yml@main
+    uses: andrebrito16/iac-github-actions/.github/workflows/svc.yml@feat/added-elixir-build
     secrets: inherit
     with:
       mainBranch: master
