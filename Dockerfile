@@ -17,3 +17,5 @@ COPY . ./
 
 # App Port
 EXPOSE 4000
+
+ENTRYPOINT [ "mix", "phx.server" ]
