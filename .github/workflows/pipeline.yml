@@ -25,7 +25,7 @@ jobs:
     uses: andrebrito16/iac-github-actions/.github/workflows/svc.yml@main
     secrets: inherit
     with:
-      mainBranch: main
+      mainBranch: master
       platforms: linux/amd64
       environmentsAsNamespaces: true
       nodeMatrix: "[18]"
